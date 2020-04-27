@@ -1,15 +1,16 @@
 import os
+from math import floor
 from stack import Stack
 from credentials import *
 
-# toBeDistributedStack = Stack()
+toBeDistributedStack = Stack()
 
-# for folder,subFolder,file in os.walk(TO_BE_DISTIBUTED_FOLDER):
-#     for i in file:
-#         toBeDistributedStack.push(file);
-#     break
+for folder,subFolder,file in os.walk(TO_BE_DISTIBUTED_FOLDER):
+    for i in file:
+        toBeDistributedStack.push(file);
+    break
 
-# sizeOfToBeDistributedStack = toBeDistributedStack.size()
+sizeOfToBeDistributedStack = toBeDistributedStack.size()
 
 
 otherAudioFiles = []
@@ -19,11 +20,9 @@ for folder,subFolder,file in os.walk(NON_DISTIRUBTED_FOLDER):
         continue
     otherAudioFiles = otherAudioFiles + file
 
-# get the total number of audio filses
 
-# get the total number of messages
 
-# store the sum of audio file / sum of messages
+insertIdx = floor(len(otherAudioFiles) / sizeOfToBeDistributedStack)
 
 # create the distributed list
 
