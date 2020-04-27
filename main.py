@@ -24,7 +24,13 @@ for folder,subFolder,file in os.walk(NON_DISTIRUBTED_FOLDER):
 
 insertIdx = floor(len(otherAudioFiles) / sizeOfToBeDistributedStack)
 
-# create the distributed list
+
+distibutedList = []
+
+
+for idx,file in enumerate(otherAudioFiles):
+    print(idx,file)
+    pass
 
 # iterate over the audio files using emnumerators
 
