@@ -51,4 +51,10 @@ for idx,file in enumerate(distibutedList):
     old = file["folder"] + "\\" + file["file"] 
     new = file["folder"] + "\\" + str(idx) + "-" + file["file"]
     rename(old,new)    
-    move(new,MOVE_PATH)    
+    try:
+        move(new,MOVE_PATH) 
+    except:
+        print("\_(*_')_/ continue")
+        continue
+
+print("script ____completed____  :)")
