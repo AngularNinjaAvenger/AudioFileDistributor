@@ -2,7 +2,7 @@ import os
 from math import floor
 from stack import Stack
 from credentials import *
-
+from shutil import move
 toBeDistributedStack = Stack()
 
 for folder,subFolder,file in os.walk(TO_BE_DISTIBUTED_FOLDER):
@@ -44,11 +44,11 @@ for idx,file in enumerate(otherAudioFiles):
 def rename(old,new):
     os.rename(old,new)
 
+    
+    
+    
 for idx,file in enumerate(distibutedList):
-    print(file)
     old = file["folder"] + "\\" + file["file"] 
     new = file["folder"] + "\\" + str(idx) + "-" + file["file"]
-    
-    break
-    # rename the curent file
-    # move the file to the desired location
+    rename(old,new)    
+    move(new,MOVE_PATH)    
