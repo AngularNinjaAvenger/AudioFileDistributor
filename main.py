@@ -2,22 +2,24 @@ import os
 from stack import Stack
 from credentials import *
 
-toBeDistributedStack = Stack()
+# toBeDistributedStack = Stack()
 
-for folder,subFolder,file in os.walk(TO_BE_DISTIBUTED_FOLDER):
-    for i in file:
-        toBeDistributedStack.push(file);
-    break
+# for folder,subFolder,file in os.walk(TO_BE_DISTIBUTED_FOLDER):
+#     for i in file:
+#         toBeDistributedStack.push(file);
+#     break
 
-sizeOfToBeDistributedStack = toBeDistributedStack.size()
-
-
+# sizeOfToBeDistributedStack = toBeDistributedStack.size()
 
 
+otherAudioFiles = []
+for folder,subFolder,file in os.walk(NON_DISTIRUBTED_FOLDER):
+    path = NON_DISTIRUBTED_FOLDER+TO_BE_DISTIBUTED_FOLDER_SUB
+    if path == folder:
+        continue
+    otherAudioFiles = otherAudioFiles + file
 
-# store other audios files in a list
-
-# get the total number of audio files
+# get the total number of audio filses
 
 # get the total number of messages
 
