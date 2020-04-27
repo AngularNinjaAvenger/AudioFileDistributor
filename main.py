@@ -7,8 +7,11 @@ toBeDistributedStack = Stack()
 
 for folder,subFolder,file in os.walk(TO_BE_DISTIBUTED_FOLDER):
     for i in file:
-        fullFile = folder + "\\" + i 
-        toBeDistributedStack.push(fullFile);
+        fileInfo = {
+            "file":i,
+            "folder":folder
+        }
+        toBeDistributedStack.push(fileInfo);
     break
 
 sizeOfToBeDistributedStack = toBeDistributedStack.size()
@@ -19,9 +22,10 @@ for folder,subFolder,file in os.walk(NON_DISTIRUBTED_FOLDER):
     path = NON_DISTIRUBTED_FOLDER+TO_BE_DISTIBUTED_FOLDER_SUB
     if path == folder:
         continue
-    otherAudioFiles = otherAudioFiles + file
-
-
+    for i in file:
+        fileInfo = {"file":i,"folder":folder}
+        otherAudioFiles.append(fileInfo);
+        
 
 insertIdx = floor(len(otherAudioFiles) / sizeOfToBeDistributedStack)
 
@@ -36,8 +40,15 @@ for idx,file in enumerate(otherAudioFiles):
     distibutedList.append(file)
     pass
 
-    
+
+def rename(old,new):
+    os.rename(old,new)
+
 for idx,file in enumerate(distibutedList):
-    pass
+    print(file)
+    old = file["folder"] + "\\" + file["file"] 
+    new = file["folder"] + "\\" + str(idx) + "-" + file["file"]
+    
+    break
     # rename the curent file
     # move the file to the desired location
