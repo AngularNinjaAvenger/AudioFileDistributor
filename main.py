@@ -7,7 +7,8 @@ toBeDistributedStack = Stack()
 
 for folder,subFolder,file in os.walk(TO_BE_DISTIBUTED_FOLDER):
     for i in file:
-        toBeDistributedStack.push(file);
+        fullFile = folder + "\\" + i 
+        toBeDistributedStack.push(fullFile);
     break
 
 sizeOfToBeDistributedStack = toBeDistributedStack.size()
@@ -29,19 +30,14 @@ distibutedList = []
 
 
 for idx,file in enumerate(otherAudioFiles):
-    print(idx,file)
+    if not (idx % insertIdx):
+        if not toBeDistributedStack.isEmpty():
+            distibutedList.append(toBeDistributedStack.pop())
+    distibutedList.append(file)
     pass
 
-# iterate over the audio files using emnumerators
-
-        # check if the current index % (sum of audio file / sum of messages) equals to 0
-            # check if the message stack is note empty
-                # pop a message from the stack and add it to the distirbuted list
-            # if it's 
-                # break 
     
-        # add the current audio file to the distributed list
-    
-# iterate over the distributed list usnig an enumerator
+for idx,file in enumerate(distibutedList):
+    pass
     # rename the curent file
     # move the file to the desired location
